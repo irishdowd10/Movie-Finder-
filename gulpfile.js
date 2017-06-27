@@ -85,6 +85,7 @@ gulp.task("build",['clean'], function(){
     gulp.start('jsBrowserify');
   }
   gulp.start('bower');
+  gulp.start('cssBuild');
 });
 
 gulp.task('serve', function() {
@@ -97,7 +98,7 @@ gulp.task('serve', function() {
 
   gulp.watch(['js/*.js'], ['jsBuild']);
   gulp.watch(['bower.json'], ['bowerBuild']);
-  gulp.watch(["scss/**/*.scss"], ['cssBuild']);
+  gulp.watch(["scss/*.scss"], ['cssBuild']);
   gulp.watch(['*.html'], ['htmlBuild']);
 });
 
