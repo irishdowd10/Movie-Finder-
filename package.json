@@ -1,12 +1,12 @@
 {
-  "name": "ProjectName",
+  "name": "MovieFinder",
   "version": "1.0.0",
-  "description": "This is a website",
+  "description": "This is a movie finder website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Julian Flood",
+  "author": "Julian Flood, John Dowd",
   "license": "ISC",
   "devDependencies": {
     "bower-files": "^4.0.0",

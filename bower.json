@@ -1,6 +1,6 @@
 {
-  "name": "ProjectName",
-  "description": "This is a description",
+  "name": "MovieFinder",
+  "description": "This is a movie finder website",
   "main": "index.js",
   "license": "ISC",
   "homepage": "",
