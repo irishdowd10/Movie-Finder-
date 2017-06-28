@@ -1,15 +1,19 @@
+var apiKey = require('./../.env').apiKey;
 
+function MovieTitle() {
+}
 
-
-
-var MovieTitle = function() {
+MovieTitle.prototype.getMovie = function(movie, displayMovie) {
+  $.get('https://api.themoviedb.org/3/search/movie?api_key=' + apiKey + '&query=' + movie) .then(function(response) {
+    var movieOutput = response.results;
+    for(var i = 0; i < movieOutput.length; i++){
+      var newMovie = response.results[i].title;
+      displayMovie(newMovie);
+    }
+  })
+  .fail(function(error){
+    $('.show-movies').text(error.responseJSON.message);
+  });
 };
-//
-// Movie.prototype.getMovie = function(movieTitle, similarTitle) {
-//   $.get('api.themoviedb.org/3/' + movieTitle + '/550?apikey=' + apiKey).then(function(response) {
-//     similarTitle(movieTitle,)
-//   })
-// };
-//
 
-exports.MovieTitleModule = MovieTitle;
+exports.movieTitleModule = MovieTitle;

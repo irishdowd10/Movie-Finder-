@@ -1,17 +1,17 @@
 var MovieTitle = require('./../js/scripts.js').movieTitleModule;
-var apiKey = require('./../.env').apiKey;
+
+var displayMovie = function(movie) {
+  $('.show-movies').show().append('<li>' + movie + '</li>');
+};
+
 
 $(document).ready(function() {
+  var movieObject = new MovieTitle();
   $('#movie-finder').click(function() {
+    $('.show-movies').empty();
     var movie = $('#movie').val();
     $('#movie').val('');
-    $.get('https://api.themoviedb.org/3/search/movie?api_key=' + apiKey + '&query=' + movie, function(response) {
-      var movieOutput = response.results;
-      for(var i = 0; i < movieOutput.length; i++){
+    movieObject.getMovie(movie, displayMovie);
 
-      $('.show-movies').append('<li>' + response.results[i].title + '</li>');
-      console.log(response.results[i].title);
-    }
-    });
   });
 });
